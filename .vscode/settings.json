@@ -1,0 +1,7 @@
+{
+  "npm.packageManager": "yarn",
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}

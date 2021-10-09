@@ -1,0 +1,60 @@
+{
+  "name": "fetcher",
+  "version": "1.0.0",
+  "description": "Isomorphic promise-based HTTP client for the browser, Node and React Native.",
+  "main": "dist/index.js",
+  "browser": "dist/index.js",
+  "license": "MIT",
+  "author": "Jose Robinson <jrobinsonc@gmail.com> (https://joserobinson.com)",
+  "scripts": {
+    "build": "yarn build:clean && yarn build:transpile && yarn build:minify",
+    "build:clean": "rimraf dist",
+    "build:transpile": "tsc --declaration --project tsconfig.json",
+    "build:minify": "uglifyjs --compress --mangle --output dist/index.min.js -- dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrobinsonc/fetcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jrobinsonc/fetcher/issues"
+  },
+  "homepage": "https://github.com/jrobinsonc/fetcher/blob/main/README.md",
+  "keywords": [
+    "ajax",
+    "api",
+    "async",
+    "await",
+    "browser",
+    "fetch",
+    "fetcher",
+    "http",
+    "isomorphic",
+    "native",
+    "node",
+    "polyfill",
+    "ponyfill",
+    "promise",
+    "react-native",
+    "rest",
+    "restful",
+    "universal",
+    "url",
+    "wrapper",
+    "xhr"
+  ],
+  "dependencies": {
+    "cross-fetch": "^3.1.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "jest": "^27.0.6",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.3.5",
+    "uglify-js": "^3.14.1"
+  }
+}

@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch';
+import crossFetch from 'cross-fetch';
 
 type QueryArgs = Record<string, unknown>;
 type BodyArgs = QueryArgs | URLSearchParams | FormData | string;
@@ -8,10 +8,9 @@ interface RequestArgs extends Omit<RequestInit, 'body'> {
 }
 
 /**
- * @package Fetcher
- * @fixme FormData only exists on clint-side, so using this on server-side will give a ReferenceError.
+ * @package wee-fetch
  */
-export default class Fetcher<ResponseType> {
+export default class WeeFetch<ResponseType> {
   /**
    * Base url that will be prepend to the requests.
    */
@@ -76,7 +75,7 @@ export default class Fetcher<ResponseType> {
     const parsedUrl = `${this.baseUrl}/${url}`;
     const parsedArgs = this.parseArgs(args ?? {});
 
-    const output = fetch(parsedUrl, parsedArgs)
+    const output = crossFetch(parsedUrl, parsedArgs)
       .then(async (response: Response): Promise<string> => {
         return response.text();
       })
@@ -112,7 +111,7 @@ export default class Fetcher<ResponseType> {
     url: string,
     query: URLSearchParams | QueryArgs | undefined = undefined,
   ): string {
-    const qs = Fetcher.serializeQueryArgs(query);
+    const qs = WeeFetch.serializeQueryArgs(query);
 
     if (qs === '') {
       return url;
@@ -130,7 +129,7 @@ export default class Fetcher<ResponseType> {
       ...args,
       method: 'GET',
     };
-    const parsedUrl = Fetcher.buildUrl(url, query);
+    const parsedUrl = WeeFetch.buildUrl(url, query);
 
     return this.request(parsedUrl, parsedArgs);
   }

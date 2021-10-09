@@ -1,5 +1,5 @@
 {
-  "name": "fetcher",
+  "name": "wee-fetch",
   "version": "1.0.0",
   "description": "Isomorphic promise-based HTTP client for the browser, Node and React Native.",
   "main": "dist/index.js",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jrobinsonc/fetcher.git"
+    "url": "https://github.com/jrobinsonc/wee-fetch.git"
   },
   "bugs": {
-    "url": "https://github.com/jrobinsonc/fetcher/issues"
+    "url": "https://github.com/jrobinsonc/wee-fetch/issues"
   },
-  "homepage": "https://github.com/jrobinsonc/fetcher/blob/main/README.md",
+  "homepage": "https://github.com/jrobinsonc/wee-fetch/blob/main/README.md",
   "keywords": [
     "ajax",
     "api",
@@ -30,7 +30,6 @@
     "await",
     "browser",
     "fetch",
-    "fetcher",
     "http",
     "isomorphic",
     "native",

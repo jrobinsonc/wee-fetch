@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch';
 import { mocked } from 'ts-jest/utils';
-import Fetcher from '../src/index';
+import Fetch from '../src/index';
 
 jest.mock('cross-fetch', () => {
   return jest.fn((url, request) => {
@@ -47,9 +47,9 @@ beforeEach(() => {
 });
 
 const baseUrl = 'https://fakeurl.com';
-const getApi = () => new Fetcher(baseUrl);
+const getApi = () => new Fetch(baseUrl);
 
-describe('Fetcher', () => {
+describe('Fetch', () => {
   test('should post JSON data', async () => {
     const endpoint = '/users';
     const body = {name: 'Jose'};

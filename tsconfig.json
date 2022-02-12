@@ -6,6 +6,6 @@
     "strict": true,
     "sourceMap": true,
   },
-  "include": ["test/**/*", "src/**/*"],
+  "include": ["src/**/*", "tests/**/*"],
   "exclude": ["node_modules"]
 }

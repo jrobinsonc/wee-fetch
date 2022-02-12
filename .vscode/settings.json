@@ -1,6 +1,10 @@
 {
   "npm.packageManager": "yarn",
 
+  // This validation is done by ESLint.
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

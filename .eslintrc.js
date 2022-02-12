@@ -11,16 +11,18 @@ const baseRules = {
 
   'import/no-extraneous-dependencies': [
     'error',
-    { devDependencies: ['**/*.test.ts', 'vite.config.js'] },
+    { devDependencies: ['tests/**/*.ts', 'vite.config.js'] },
   ],
+};
+
+const env = {
+  browser: true,
+  node: true,
 };
 
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
+  env,
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -52,7 +54,7 @@ module.exports = {
       files: '**/*.ts',
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig-src.json',
+        project: './tsconfig.json',
       },
       extends: [
         'airbnb-base',
@@ -75,7 +77,7 @@ module.exports = {
         // In case "any" is required, add eslint-disable-next-line and a comment explaining why.
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/typedef': [
-          'warn',
+          'error',
           {
             arrayDestructuring: true,
             arrowParameter: true,
@@ -145,11 +147,9 @@ module.exports = {
       },
     },
     {
-      files: 'test/**/*.ts',
-      parserOptions: {
-        project: './tsconfig-tests.json',
-      },
+      files: 'tests/**/*.ts',
       env: {
+        ...env,
         jest: true,
       },
     },

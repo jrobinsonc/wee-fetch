@@ -1,4 +1,1 @@
-test/*
 dist/*
-.eslintrc.js
-jest.config.*

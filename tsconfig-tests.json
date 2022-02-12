@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig-base",
+  "include": ["test/**/*"],
+  "exclude": ["node_modules", "src/**/*"]
+}

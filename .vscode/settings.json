@@ -1,7 +1,21 @@
 {
   "npm.packageManager": "yarn",
 
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+
+  "eslint.enable": true,
+  "eslint.debug": true,
+  "eslint.packageManager": "yarn",
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.js",
+    "ignorePath": ".eslintignore",
+    "extensions": [".ts", ".js"],
+  },
+  "eslint.validate": [
+    "typescript"
+  ],
 }

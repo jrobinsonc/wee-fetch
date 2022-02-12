@@ -12,22 +12,29 @@ Isomorphic and minimalistic promise-based HTTP client for the browser, Node and 
 This is something I built for my own use a while ago and now is public but lacking documentation. Down here you have a quick example of usage.
 
 ```js
-// => utils/api.js
 import Fetch from 'wee-fetch';
 
-const api = new Fetch(process.env.API_URL);
+const api = new Fetch('https://domain.com/api/v1/');
 
-export default api;
+// Using GET
+api.get('users')
+  .then((usersList) => {
+    doSomethingWith(usersList);
+  })
+  .catch(() => {
+    alert('Ops, the list of users could not be retreived!');
+  });
 
-// => users.js
-import api from './utils/api.js';
-
-// You can use .get(), .post(), .put(), and .delete().
-api.get('/users')
-    .then((usersList) => {
-      // usersList is JSON-parsed data returned by the back-end endpoint.
-    })
-    .catch(() => {
-      alert('Ops, something went wrong!');
-    });
+// Using PUT
+api.put('users/1', { name: 'John Doe' })
+  .then((usersList) => {
+    alert('User updated!');
+  })
+  .catch(() => {
+    alert('Ops, the user could not be updated!');
+  });
 ```
+
+## License
+
+MIT License © 2021 [Jose Robinson](https://joserobinson.com)

@@ -11,16 +11,18 @@ const baseRules = {
 
   'import/no-extraneous-dependencies': [
     'error',
-    { devDependencies: ['**/*.test.ts', 'vite.config.js'] },
+    { devDependencies: ['tests/**/*.ts', 'vite.config.js'] },
   ],
+};
+
+const env = {
+  browser: true,
+  node: true,
 };
 
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
+  env,
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -52,7 +54,7 @@ module.exports = {
       files: '**/*.ts',
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig-src.json',
+        project: './tsconfig.json',
       },
       extends: [
         'airbnb-base',
@@ -69,13 +71,17 @@ module.exports = {
 
         'promise/catch-or-return': 'off', // => @typescript-eslint/no-floating-promises
 
+        '@typescript-eslint/consistent-type-assertions': 'warn',
+        '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
         '@typescript-eslint/no-floating-promises': 'warn',
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
+        // This is better than "explicit-module-boundary-types", because it checks all functions and not only the ones that are exported.
+        '@typescript-eslint/explicit-function-return-type': 'error',
         // In case "any" is required, add eslint-disable-next-line and a comment explaining why.
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/typedef': [
-          'warn',
+          'error',
           {
             arrayDestructuring: true,
             arrowParameter: true,
@@ -145,11 +151,9 @@ module.exports = {
       },
     },
     {
-      files: 'test/**/*.ts',
-      parserOptions: {
-        project: './tsconfig-tests.json',
-      },
+      files: 'tests/**/*.ts',
       env: {
+        ...env,
         jest: true,
       },
     },

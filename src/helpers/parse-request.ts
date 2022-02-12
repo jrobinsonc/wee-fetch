@@ -11,7 +11,7 @@ import WeeFetchError from '../WeeFetchError';
 export default function parseRequest(args: RequestArgs): RequestInit {
   const { headers, body, ...requestArgs }: RequestArgs = args;
   let parsedBody: BodyInit | undefined;
-  const parsedHeaders: HeadersInit = headers;
+  const parsedHeaders: HeadersInit | undefined = headers;
 
   switch (true) {
     case body === undefined:
@@ -30,7 +30,7 @@ export default function parseRequest(args: RequestArgs): RequestInit {
       // Content-Type header on the request. Doing so will prevent the browser
       // from being able to set the Content-Type header with the boundary
       // expression it will use to delimit form fields in the request body.
-      if ('Content-Type' in parsedHeaders) {
+      if (parsedHeaders && 'Content-Type' in parsedHeaders) {
         delete parsedHeaders['Content-Type'];
       }
       break;

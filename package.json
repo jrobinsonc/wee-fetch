@@ -16,9 +16,9 @@
     }
   },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "npm run lint && rimraf dist",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "eslint .; tsc --noEmit ",
     "fix": "eslint --fix .",
     "test": "jest",
     "test:watch": "jest --watchAll",

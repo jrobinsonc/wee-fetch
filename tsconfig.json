@@ -4,8 +4,9 @@
     "target": "ES6",
     "useDefineForClassFields": true,
     "strict": true,
+    "moduleResolution": "node",
     "sourceMap": true,
   },
-  "include": ["test/**/*", "src/**/*"],
+  "include": ["src/**/*", "tests/**/*"],
   "exclude": ["node_modules"]
 }

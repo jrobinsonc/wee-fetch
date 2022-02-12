@@ -47,8 +47,6 @@ export default function parseRequest(args: RequestArgs): RequestInit {
   return {
     headers: parsedHeaders,
     body: parsedBody,
-    // FIXME: credentials should not be here; it should be passed from the class since this is something that could be passed or no.
-    credentials: 'include',
     ...requestArgs,
   };
 }

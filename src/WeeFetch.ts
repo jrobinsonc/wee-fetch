@@ -21,7 +21,7 @@ export default class WeeFetch<BaseResponseData = DefaultResponseData> {
   /**
    * Default request arguments.
    */
-  public defArgs: RequestInit;
+  public defArgs: RequestArgs;
 
   /**
    * Constructor.
@@ -29,7 +29,7 @@ export default class WeeFetch<BaseResponseData = DefaultResponseData> {
    * @param baseUrl - Optional base url.
    * @param defArgs - Optional request arguments.
    */
-  constructor(baseUrl: string = '', defArgs: RequestInit = {}) {
+  constructor(baseUrl: string = '', defArgs: RequestArgs = {}) {
     this.baseUrl = baseUrl;
     this.defArgs = defArgs;
   }
@@ -52,6 +52,7 @@ export default class WeeFetch<BaseResponseData = DefaultResponseData> {
       'Content-Type': 'application/json',
     };
     const parsedArgs: RequestInit = parseRequest({
+      ...this.defArgs,
       ...args,
       headers: { ...defaultHeaders, ...(args.headers ?? {}) },
     });

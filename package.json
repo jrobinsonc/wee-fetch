@@ -1,6 +1,6 @@
 {
   "name": "wee-fetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Isomorphic promise-based HTTP client for the browser, Node and React Native.",
   "license": "MIT",
   "author": "Jose Robinson <jrobinsonc@gmail.com> (https://joserobinson.com)",

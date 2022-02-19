@@ -1,5 +1,5 @@
 import crossFetch from 'cross-fetch';
-import {
+import type {
   BodyArgs,
   QueryArgs,
   RequestArgs,

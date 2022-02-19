@@ -1,4 +1,4 @@
-import { ResponseData as DefaultResponseData } from './types';
+import type { ResponseData as DefaultResponseData } from './types';
 
 /**
  * WeeFetchError class.

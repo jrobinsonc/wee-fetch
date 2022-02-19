@@ -93,6 +93,13 @@ module.exports = {
             variableDeclarationIgnoreFunction: true,
           },
         ],
+
+        // ViteJs specific
+        // https://vitejs.dev/guide/features.html#typescript
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          { prefer: 'type-imports' },
+        ],
       },
       settings: {
         jsdoc: {

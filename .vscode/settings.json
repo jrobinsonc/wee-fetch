@@ -5,7 +5,12 @@
   "typescript.validate.enable": false,
   "javascript.validate.enable": false,
 
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

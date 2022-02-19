@@ -1,6 +1,6 @@
 import crossFetch from 'cross-fetch';
-import { BodyArgs } from '../src/types';
-import WeeFetch from '../src/index';
+import type { BodyArgs } from '../src/types';
+import WeeFetch from '../src';
 
 type ResponseData = [string, RequestInit];
 

@@ -1,5 +1,5 @@
 import serializeArgs from './serialize-args';
-import { QueryArgs } from '../types';
+import type { QueryArgs } from '../types';
 
 /**
  * Builds the url with the query provided.

@@ -59,14 +59,12 @@ export default class WeeFetch<BaseResponseData = DefaultResponseData> {
     let response: Response;
 
     try {
-      // For some reason eslint can't find the type definition for `cross-fetch`.
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      response = (await crossFetch(parsedUrl, parsedArgs)) as Response;
-    } catch (error) {
+      response = await crossFetch(parsedUrl, parsedArgs);
+    } catch (error: unknown) {
       const fetchError: WeeFetchError<ResponseData> =
         new WeeFetchError<ResponseData>('Network request failed');
 
-      fetchError.extra = error;
+      fetchError.extra = { errorMessage: (error as Error).message };
 
       throw fetchError;
     }
@@ -77,11 +75,11 @@ export default class WeeFetch<BaseResponseData = DefaultResponseData> {
       const responseText: string = await response.text();
 
       jsonData = JSON.parse(responseText) as ResponseData;
-    } catch (error) {
+    } catch (error: unknown) {
       const fetchError: WeeFetchError<ResponseData> =
         new WeeFetchError<ResponseData>('Invalid JSON response received');
 
-      fetchError.extra = error;
+      fetchError.extra = { errorMessage: (error as Error).message };
 
       throw fetchError;
     }

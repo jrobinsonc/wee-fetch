@@ -13,10 +13,6 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['cross-fetch'],
-      output: {
-        globals: {},
-        exports: 'named',
-      },
     },
   },
   plugins: [banner(`${pkg.name} v${pkg.version} - ${pkg.homepage}`)],

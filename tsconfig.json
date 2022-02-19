@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "isolatedModules": true, // Required by vitejs (https://vitejs.dev/guide/features.html#typescript-compiler-options).
     "target": "ES6",
-    "useDefineForClassFields": true,
     "strict": true,
     "moduleResolution": "node",
-    "sourceMap": true,
   },
-  "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

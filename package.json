@@ -16,11 +16,13 @@
     }
   },
   "scripts": {
-    "prebuild": "npm run lint && rimraf dist",
+    "prebuild": "yarn lint && yarn check-types && rimraf dist",
     "build": "vite build",
-    "lint": "eslint .; tsc --noEmit ",
+    "prepublishOnly": "yarn build",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint .",
     "fix": "eslint --fix .",
-    "test": "jest",
+    "test": "yarn check-types && jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage"
   },

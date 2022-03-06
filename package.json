@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "prebuild": "yarn lint && yarn check-types && rimraf dist",
+    "prebuild": "yarn check-types && yarn lint && rimraf dist",
     "build": "vite build",
     "prepublishOnly": "yarn build",
     "check-types": "tsc --noEmit",
